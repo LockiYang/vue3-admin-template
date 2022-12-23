@@ -59,7 +59,7 @@ export function numberFormatter(num: number, digits: number) {
 export function toThousandFilter(num: number) {
   return (+num || 0)
     .toString()
-    .replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));
+    .replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ","));
 }
 
 /**

@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
 import { defineStore } from "pinia";
 import { constantRoutes } from "@/router";
 import { store } from "@/stores";
@@ -13,7 +13,7 @@ const hasPermission = (roles: string[], route: RouteRecordRaw) => {
     if (roles.includes("ROOT")) {
       return true;
     }
-    return roles.some((role) => {
+    return roles.some(role => {
       if (route.meta?.roles !== undefined) {
         return (route.meta.roles as string[]).includes(role);
       }
@@ -24,7 +24,7 @@ const hasPermission = (roles: string[], route: RouteRecordRaw) => {
 
 const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
   const res: RouteRecordRaw[] = [];
-  routes.forEach((route) => {
+  routes.forEach(route => {
     const tmp = { ...route } as any;
     if (hasPermission(roles, tmp)) {
       if (tmp.component == "Layout") {
@@ -62,13 +62,13 @@ export const usePermissionStore = defineStore("permission", () => {
   function generateRoutes(roles: string[]) {
     return new Promise<RouteRecordRaw[]>((resolve, reject) => {
       listRoutes()
-        .then((response) => {
+        .then(response => {
           const asyncRoutes = response.data;
           const accessedRoutes = filterAsyncRoutes(asyncRoutes, roles);
           setRoutes(accessedRoutes);
           resolve(accessedRoutes);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });

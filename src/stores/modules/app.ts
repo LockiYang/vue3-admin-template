@@ -3,9 +3,15 @@ import {
   setSidebarStatus,
   getSize,
   setSize,
+  setLanguage,
 } from "@/utils/localStorage";
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { getLanguage } from "@/lang/index";
+import { computed, reactive, ref } from "vue";
+
+// Element Plus 语言包
+import zhCn from "element-plus/es/locale/lang/zh-cn";
+import en from "element-plus/es/locale/lang/en";
 
 export enum DeviceType {
   mobile,
@@ -23,9 +29,18 @@ export const useAppStore = defineStore("app", () => {
   // state
   const device = ref<DeviceType>(DeviceType.desktop);
   const size = ref(getSize() || "default");
+  const language = ref(getLanguage());
   const sidebar = reactive({
     opened: getSidebarStatus() !== "closed",
     withoutAnimation: false,
+  });
+
+  const locale = computed(() => {
+    if (language?.value == "en") {
+      return en;
+    } else {
+      return zhCn;
+    }
   });
 
   // actions
@@ -60,12 +75,20 @@ export const useAppStore = defineStore("app", () => {
     setSize(val);
   }
 
+  function changeLanguage(val: string) {
+    language.value = val;
+    setLanguage(val);
+  }
+
   return {
     device,
     sidebar,
+    language,
+    locale,
     size,
     toggleDevice,
     changeSize,
+    changeLanguage,
     toggleSidebar,
     closeSideBar,
     openSideBar,

@@ -1,7 +1,7 @@
 import router from "@/router";
 import type { RouteRecordRaw } from "vue-router";
-import { useUserStoreHook } from "@/store/modules/user";
-import { usePermissionStoreHook } from "@/store/modules/permission";
+import { useUserStoreHook } from "@/stores/modules/user";
+import { usePermissionStoreHook } from "@/stores/modules/permission";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";

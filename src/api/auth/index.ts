@@ -1,6 +1,6 @@
 import request from "@/utils/request";
-import { AxiosPromise } from "axios";
-import { LoginData, TokenResult, VerifyCode } from "./types";
+import type { AxiosPromise } from "axios";
+import type { LoginData, TokenResult, VerifyCode } from "./types";
 
 /**
  *

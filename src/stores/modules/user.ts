@@ -4,10 +4,10 @@ import { getToken, setToken, removeToken } from "@/utils/auth";
 import { loginApi, logoutApi } from "@/api/auth";
 import { getUserInfo } from "@/api/user";
 import { resetRouter } from "@/router";
-import { store } from "@/store";
-import { LoginData } from "@/api/auth/types";
+import { store } from "@/stores";
+import type { LoginData } from "@/api/auth/types";
 import { ref } from "vue";
-import { UserInfo } from "@/api/user/types";
+import type { UserInfo } from "@/api/user/types";
 
 export const useUserStore = defineStore("user", () => {
   // state
@@ -23,13 +23,13 @@ export const useUserStore = defineStore("user", () => {
   function login(loginData: LoginData) {
     return new Promise<void>((resolve, reject) => {
       loginApi(loginData)
-        .then((response) => {
+        .then(response => {
           const { accessToken } = response.data;
           token.value = accessToken;
           setToken(accessToken);
           resolve();
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -52,7 +52,7 @@ export const useUserStore = defineStore("user", () => {
           perms.value = data.perms;
           resolve(data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -67,7 +67,7 @@ export const useUserStore = defineStore("user", () => {
           resetToken();
           resolve();
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });

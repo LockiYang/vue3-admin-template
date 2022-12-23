@@ -1,16 +1,16 @@
-import { defineStore } from 'pinia';
-import defaultSettings from '../../settings';
-import { ref } from 'vue';
+import { defineStore } from "pinia";
+import defaultSettings from "../../settings";
+import { ref } from "vue";
 import { useCssVar, useStorage } from "@vueuse/core";
 
 const el = document.documentElement;
 
-export const useSettingsStore = defineStore('setting', () => {
+export const useSettingsStore = defineStore("setting", () => {
   // state
-  const theme = useStorage('theme', useCssVar('--el-color-primary', el))
+  const theme = useStorage("theme", useCssVar("--el-color-primary", el));
 
   const showSettings = ref<boolean>(defaultSettings.showSettings);
-  const tagsView = useStorage<boolean>('tagsView', defaultSettings.tagsView)
+  const tagsView = useStorage<boolean>("tagsView", defaultSettings.tagsView);
   const fixedHeader = ref<boolean>(defaultSettings.fixedHeader);
   const sidebarLogo = ref<boolean>(defaultSettings.sidebarLogo);
 
@@ -18,19 +18,19 @@ export const useSettingsStore = defineStore('setting', () => {
   function changeSetting(param: { key: string; value: any }) {
     const { key, value } = param;
     switch (key) {
-      case 'theme':
+      case "theme":
         theme.value = value;
         break;
-      case 'showSettings':
+      case "showSettings":
         showSettings.value = value;
         break;
-      case 'fixedHeader':
+      case "fixedHeader":
         fixedHeader.value = value;
         break;
-      case 'tagsView':
+      case "tagsView":
         tagsView.value = value;
         break;
-      case 'sidevarLogo':
+      case "sidevarLogo":
         sidebarLogo.value = value;
         break;
       default:
@@ -44,6 +44,6 @@ export const useSettingsStore = defineStore('setting', () => {
     tagsView,
     fixedHeader,
     sidebarLogo,
-    changeSetting
+    changeSetting,
   };
 });

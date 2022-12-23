@@ -1,20 +1,51 @@
-import { createRouter, createWebHistory } from "vue-router";
-import type { RouteRecordRaw } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+} from "vue-router";
+import { usePermissionStoreHook } from "@/stores/modules/permission";
+
+export const Layout = () => import("@/layout/index.vue");
 
 export const constantRoutes: RouteRecordRaw[] = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: "/redirect",
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: "/redirect/:path(.*)",
+        component: () => import("@/views/redirect/index.vue"),
+      },
+    ],
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import("@/views/AboutView.vue"),
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    meta: { hidden: true },
+  },
+  {
+    path: "/404",
+    component: () => import("@/views/error-page/404.vue"),
+    meta: { hidden: true },
+  },
+  {
+    path: "/",
+    component: Layout,
+    redirect: "/dashboard",
+    children: [
+      {
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index.vue"),
+        name: "Dashboard",
+        meta: { title: "dashboard", icon: "homepage", affix: true },
+      },
+      {
+        path: "401",
+        component: () => import("@/views/error-page/401.vue"),
+        meta: { hidden: true },
+      },
+    ],
   },
 ];
 
@@ -29,7 +60,7 @@ const router = createRouter({
 // 重置路由
 export function resetRouter() {
   const permissionStore = usePermissionStoreHook();
-  permissionStore.routes.forEach((route) => {
+  permissionStore.routes.forEach(route => {
     const name = route.name;
     if (name && router.hasRoute(name)) {
       router.removeRoute(name);
