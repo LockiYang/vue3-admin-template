@@ -8,7 +8,7 @@ import Hamburger from "@/components/Hamburger/index.vue";
 import Screenfull from "@/components/Screenfull/index.vue";
 import SizeSelect from "@/components/SizeSelect/index.vue";
 import LangSelect from "@/components/LangSelect/index.vue";
-import { CaretBottom } from "@element-plus/icons-vue";
+import { CaretBottom, Avatar } from "@element-plus/icons-vue";
 
 import { useAppStore, DeviceType } from "@/stores/modules/app";
 import { useTagsViewStore } from "@/stores/modules/tagsView";
@@ -57,21 +57,22 @@ function logout() {
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
     <div class="right-menu">
-      <template v-if="device !== DeviceType.mobile">
+      <!-- <template v-if="device !== DeviceType.mobile">
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
         <el-tooltip content="布局大小" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
         </el-tooltip>
         <lang-select class="right-menu-item hover-effect" />
-      </template>
+      </template> -->
 
       <el-dropdown
         class="avatar-container right-menu-item hover-effect"
         trigger="click"
       >
         <div class="avatar-wrapper">
-          <img :src="userStore.avatar + '?imageView2/1/w/80/h/80'" />
-          <CaretBottom style="width: 0.6em; height: 0.6em; margin-left: 5px" />
+          <!-- <img :src="userStore.avatar + '?imageView2/1/w/80/h/80'" /> -->
+          <Avatar style="width: 1em; height: 1em; margin-left: 5px" />
+          <CaretBottom style="width: 1em; height: 1em; margin-left: 5px" />
         </div>
 
         <template #dropdown>
@@ -108,8 +109,9 @@ ul {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  // background: #fff;
+  // box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  border-bottom: #ebeef5 solid 1px;
 
   .hamburger-container {
     line-height: 46px;
@@ -159,8 +161,9 @@ ul {
       margin-right: 30px;
 
       .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
+        // margin-top: 5px;
+        // position: relative;
+        line-height: 50px;
 
         img {
           cursor: pointer;

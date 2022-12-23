@@ -18,6 +18,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    border-right: $--border-color-lighter solid 1px;
 
     // reset element-ui css
     .horizontal-collapse-transition {
@@ -35,6 +36,12 @@
 
     .el-scrollbar {
       height: 100%;
+    }
+
+    .el-menu-item {
+      &.is-active {
+        background-color: $--border-color-lighter !important;
+      }
     }
 
     &.has-logo {
@@ -83,7 +90,7 @@
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
       min-width: $sideBarWidth !important;
-      background-color: $subMenuBg !important;
+      // background-color: $subMenuBg !important;
 
       &:hover {
         background-color: $subMenuHover !important;

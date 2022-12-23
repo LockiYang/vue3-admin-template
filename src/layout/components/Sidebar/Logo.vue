@@ -48,7 +48,8 @@ const logo = ref<string>(
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
+  background: #fff;
+  border-bottom: #EBEEF5 solid 1px;
   text-align: center;
   overflow: hidden;
 
@@ -65,7 +66,7 @@ const logo = ref<string>(
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #fff;
+      color: #000;
       font-weight: 600;
       line-height: 50px;
       font-size: 14px;
