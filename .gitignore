@@ -20,7 +20,6 @@ node_modules
 dist
 dist-ssr
 .DS_Store
-/.env
 Desktop.ini
 
 # 部署到线上时，如果您已经删除了 /modules 的忽略规则，那么以下规则可以帮您排除多余的模块文件（已知的多余/重复文件）
