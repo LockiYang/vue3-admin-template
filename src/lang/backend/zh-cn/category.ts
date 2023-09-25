@@ -1,0 +1,16 @@
+export default {
+    id: 'ID',
+    type: '栏目类型',
+    'type 1': '首页分类',
+    'type 2': '发现页分类',
+    name: '分类名称',
+    image: '图片',
+    description: '描述',
+    weigh: '权重',
+    status: '状态',
+    'status 0': '禁用',
+    'status 1': '正常',
+    create_time: '创建时间',
+    update_time: '修改时间',
+    'quick Search Fields': 'ID',
+}

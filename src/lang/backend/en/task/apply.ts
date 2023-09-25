@@ -1,0 +1,16 @@
+export default {
+    id: 'id',
+    user_id: 'user_id',
+    task_id: 'task_id',
+    price: 'price',
+    status: 'status',
+    'status 0': 'status 0',
+    'status 1': 'status 1',
+    'status 2': 'status 2',
+    'status 3': 'status 3',
+    'status 4': 'status 4',
+    remark: 'remark',
+    create_time: 'create_time',
+    update_time: 'update_time',
+    'quick Search Fields': 'id',
+}

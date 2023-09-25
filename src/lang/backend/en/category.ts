@@ -1,0 +1,16 @@
+export default {
+    id: 'id',
+    type: 'type',
+    'type 1': 'type 1',
+    'type 2': 'type 2',
+    name: 'name',
+    image: 'image',
+    description: 'description',
+    weigh: 'weigh',
+    status: 'status',
+    'status 0': 'status 0',
+    'status 1': 'status 1',
+    create_time: 'create_time',
+    update_time: 'update_time',
+    'quick Search Fields': 'id',
+}
