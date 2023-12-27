@@ -5,6 +5,7 @@ import { postLogout } from '/@/api/frontend/user/index'
 import { Local } from '/@/utils/storage'
 import router from '../router'
 
+// 会员信息
 export const useUserInfo = defineStore('userInfo', {
     state: (): UserInfo => {
         return {

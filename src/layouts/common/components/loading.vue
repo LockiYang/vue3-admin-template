@@ -3,11 +3,11 @@
         <div
             v-loading="true"
             element-loading-background="var(--ba-bg-color-overlay)"
-            :element-loading-text="$t('utils.Loading')"
+            element-loading-text="加载中..."
             class="default-main ba-main-loading"
         ></div>
         <div v-if="state.showReload" class="loading-footer">
-            <el-button @click="refresh" type="warning">{{ $t('utils.Reload') }}</el-button>
+            <el-button @click="refresh" type="warning">重新加载</el-button>
         </div>
     </div>
 </template>

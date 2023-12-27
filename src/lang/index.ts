@@ -94,7 +94,12 @@ function getLangFileMessage(mList: any, locale: string) {
     }
     return msg
 }
-
+/**
+ * 合并国际化语言包到全局
+ * @param message
+ * @param pathName
+ * @returns
+ */
 export function mergeMessage(message: anyObj, pathName = '') {
     if (isEmpty(message)) return
     if (!pathName) {

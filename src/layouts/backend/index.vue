@@ -55,7 +55,7 @@ const init = () => {
         if (res.data.menus) {
             handleAdminRoute(res.data.menus)
 
-            // 预跳转到上次路径
+            // 预跳转到上次路径，刷新时从loading页面跳转
             if (route.params.to) {
                 const lastRoute = JSON.parse(route.params.to as string)
                 if (lastRoute.path != adminBaseRoute.path) {

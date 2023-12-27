@@ -5,6 +5,7 @@ import { postLogout } from '/@/api/backend/module'
 import { Local } from '/@/utils/storage'
 import router from '../router'
 
+// 管理员信息
 export const useBaAccount = defineStore('baAccount', {
     state: (): UserInfo => {
         return {

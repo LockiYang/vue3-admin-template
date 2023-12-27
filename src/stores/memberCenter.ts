@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { MemberCenter, Menus } from '/@/stores/interface/index'
 import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 
+// 前台会员中心设置
 export const useMemberCenter = defineStore('memberCenter', () => {
     const state: MemberCenter = reactive({
         // 是否开启会员中心

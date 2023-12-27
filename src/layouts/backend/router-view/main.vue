@@ -1,6 +1,7 @@
 <template>
     <el-main class="layout-main">
         <el-scrollbar class="layout-main-scrollbar" :style="layoutMainScrollbarStyle()" ref="mainScrollbarRef">
+            <!-- { Component } 是一个解构赋值，它允许你访问由 <router-view> 提供的 Component，即当前路由匹配的组件。 -->
             <router-view v-slot="{ Component }">
                 <transition :name="config.layout.mainAnimation" mode="out-in">
                     <keep-alive :include="state.keepAliveComponentNameList">
@@ -49,6 +50,7 @@ onBeforeMount(() => {
         state.keepAliveComponentNameList = state.keepAliveComponentNameList.filter((name: string) => menu.meta.keepalive !== name)
         state.componentKey = ''
         nextTick(() => {
+            // 在下一个 DOM 更新周期执行的代码
             state.componentKey = menu.path
             addKeepAliveComponentName(menu.meta.keepalive as string)
         })

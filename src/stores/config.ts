@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { STORE_CONFIG } from '/@/stores/constant/cacheKey'
 import { Layout } from '/@/stores/interface'
 
+// 布局和语言设置
 export const useConfig = defineStore(
     'config',
     () => {

@@ -132,12 +132,13 @@ export const handleFrontendRoute = (routes: any) => {
 export const handleAdminRoute = (routes: any) => {
     const viewsComponent = import.meta.glob('/src/views/backend/**/*.vue')
     addRouteAll(viewsComponent, routes, adminBaseRoute.name as string)
-    const menuAdminBaseRoute = '/' + (adminBaseRoute.name as string) + '/'
+    const menuAdminBaseRoute = '/' + (adminBaseRoute.name as string) + '/'  // /admin/
+    // 后台的menu数据处理成router的菜单数据
     const menuRule = handleMenuRule(routes, menuAdminBaseRoute, 'admin')
-
     // 更新stores中的路由菜单数据
     const navTabs = useNavTabs()
     navTabs.setTabsViewRoutes(menuRule)
+    // 每个菜单的权限节点add edit delete等
     navTabs.fillAuthNode(handleAuthNode(routes, menuAdminBaseRoute))
 }
 

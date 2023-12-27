@@ -6,6 +6,7 @@ import { STORE_TAB_VIEW_CONFIG } from '/@/stores/constant/cacheKey'
 import { NavTabs } from '/@/stores/interface/index'
 import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 
+// 菜单tab
 export const useNavTabs = defineStore(
     'navTabs',
     () => {

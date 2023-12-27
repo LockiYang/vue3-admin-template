@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { SiteConfig, Menus } from '/@/stores/interface'
 
+// 站点设置
 export const useSiteConfig = defineStore('siteConfig', {
     state: (): SiteConfig => {
         return {

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ADMIN_INFO } from '/@/stores/constant/cacheKey'
 import { AdminInfo } from '/@/stores/interface'
 
+// 后台管理用户登录信息
 export const useAdminInfo = defineStore('adminInfo', {
     state: (): AdminInfo => {
         return {
