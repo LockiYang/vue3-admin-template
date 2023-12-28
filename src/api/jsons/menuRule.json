@@ -1,0 +1,167 @@
+[
+    {
+        "path": "/admin/dashboard",
+        "name": "dashboard/dashboard",
+        "component": "/src/views/backend/dashboard.vue",
+        "meta": { "title": "控制台", "icon": "fa fa-dashboard", "keepalive": "dashboard/dashboard", "type": "tab" },
+        "children": []
+    },
+    {
+        "path": "/admin/auth",
+        "name": "auth",
+        "component": "",
+        "meta": { "title": "权限管理", "icon": "fa fa-group", "keepalive": 0, "type": null },
+        "children": [
+            {
+                "path": "/admin/auth/group",
+                "name": "auth/group",
+                "component": "/src/views/backend/auth/group/index.vue",
+                "meta": { "title": "角色组管理", "icon": "fa fa-group", "keepalive": "auth/group", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/auth/admin",
+                "name": "auth/admin",
+                "component": "/src/views/backend/auth/admin/index.vue",
+                "meta": { "title": "管理员管理", "icon": "el-icon-UserFilled", "keepalive": "auth/admin", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/auth/menu",
+                "name": "auth/menu",
+                "component": "/src/views/backend/auth/menu/index.vue",
+                "meta": { "title": "菜单规则管理", "icon": "el-icon-Grid", "keepalive": "auth/menu", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/auth/adminLog",
+                "name": "auth/adminLog",
+                "component": "/src/views/backend/auth/adminLog/index.vue",
+                "meta": { "title": "管理员日志管理", "icon": "el-icon-List", "keepalive": "auth/adminLog", "type": "tab" },
+                "children": []
+            }
+        ]
+    },
+    {
+        "path": "/admin/user",
+        "name": "user",
+        "component": "",
+        "meta": { "title": "会员管理", "icon": "fa fa-drivers-license", "keepalive": 0, "type": null },
+        "children": [
+            {
+                "path": "/admin/user/user",
+                "name": "user/user",
+                "component": "/src/views/backend/user/user/index.vue",
+                "meta": { "title": "会员管理", "icon": "fa fa-user", "keepalive": "user/user", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/user/group",
+                "name": "user/group",
+                "component": "/src/views/backend/user/group/index.vue",
+                "meta": { "title": "会员分组管理", "icon": "fa fa-group", "keepalive": "user/group", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/user/rule",
+                "name": "user/rule",
+                "component": "/src/views/backend/user/rule/index.vue",
+                "meta": { "title": "会员规则管理", "icon": "fa fa-th-list", "keepalive": "user/rule", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/user/moneyLog",
+                "name": "user/moneyLog",
+                "component": "/src/views/backend/user/moneyLog/index.vue",
+                "meta": { "title": "会员余额管理", "icon": "el-icon-Money", "keepalive": 0, "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/user/scoreLog",
+                "name": "user/scoreLog",
+                "component": "/src/views/backend/user/scoreLog/index.vue",
+                "meta": { "title": "会员积分管理", "icon": "el-icon-Discount", "keepalive": "user/scoreLog", "type": "tab" },
+                "children": []
+            }
+        ]
+    },
+    {
+        "path": "/admin/routine",
+        "name": "routine",
+        "component": "",
+        "meta": { "title": "常规管理", "icon": "fa fa-cogs", "keepalive": 0, "type": null },
+        "children": [
+            {
+                "path": "/admin/routine/config",
+                "name": "routine/config",
+                "component": "/src/views/backend/routine/config/index.vue",
+                "meta": { "title": "系统配置", "icon": "el-icon-Tools", "keepalive": "routine/config", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/routine/attachment",
+                "name": "routine/attachment",
+                "component": "/src/views/backend/routine/attachment/index.vue",
+                "meta": { "title": "附件管理", "icon": "fa fa-folder", "keepalive": "routine/attachment", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/routine/adminInfo",
+                "name": "routine/adminInfo",
+                "component": "/src/views/backend/routine/adminInfo.vue",
+                "meta": { "title": "个人资料", "icon": "fa fa-user", "keepalive": "routine/adminInfo", "type": "tab" },
+                "children": []
+            }
+        ]
+    },
+    {
+        "path": "/admin/moduleStore",
+        "name": "moduleStore/moduleStore",
+        "component": "/src/views/backend/module/index.vue",
+        "meta": { "title": "模块市场", "icon": "el-icon-GoodsFilled", "keepalive": "moduleStore/moduleStore", "type": "tab" },
+        "children": []
+    },
+    {
+        "path": "/admin/security",
+        "name": "security",
+        "component": "",
+        "meta": { "title": "数据安全管理", "icon": "fa fa-shield", "keepalive": 0, "type": null },
+        "children": [
+            {
+                "path": "/admin/security/dataRecycleLog",
+                "name": "security/dataRecycleLog",
+                "component": "/src/views/backend/security/dataRecycleLog/index.vue",
+                "meta": { "title": "数据回收站", "icon": "fa fa-database", "keepalive": "security/dataRecycleLog", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/security/sensitiveDataLog",
+                "name": "security/sensitiveDataLog",
+                "component": "/src/views/backend/security/sensitiveDataLog/index.vue",
+                "meta": { "title": "敏感数据修改记录", "icon": "fa fa-expeditedssl", "keepalive": "security/sensitiveDataLog", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/security/dataRecycle",
+                "name": "security/dataRecycle",
+                "component": "/src/views/backend/security/dataRecycle/index.vue",
+                "meta": { "title": "数据回收规则管理", "icon": "fa fa-database", "keepalive": "security/dataRecycle", "type": "tab" },
+                "children": []
+            },
+            {
+                "path": "/admin/security/sensitiveData",
+                "name": "security/sensitiveData",
+                "component": "/src/views/backend/security/sensitiveData/index.vue",
+                "meta": { "title": "敏感字段规则管理", "icon": "fa fa-expeditedssl", "keepalive": "security/sensitiveData", "type": "tab" },
+                "children": []
+            }
+        ]
+    },
+    {
+        "path": "/admin/crud/crud",
+        "name": "crud/crud",
+        "component": "/src/views/backend/crud/index.vue",
+        "meta": { "title": "CRUD代码生成", "icon": "fa fa-code", "keepalive": "crud/crud", "type": "tab" },
+        "children": []
+    }
+]

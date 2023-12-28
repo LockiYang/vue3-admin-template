@@ -141,7 +141,7 @@ export const handleAdminRoute = (routes: any) => {
     // 设置菜单
     const navTabs = useNavTabs()
     navTabs.setTabsViewRoutes(menuRule)
-    // 处理权限节点 button
+    // 处理权限规则 button
     navTabs.fillAuthNode(handleAuthNode(routes, menuAdminBaseRoute))
 }
 
