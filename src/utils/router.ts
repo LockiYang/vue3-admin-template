@@ -128,17 +128,20 @@ export const handleFrontendRoute = (routes: any) => {
 
 /**
  * 处理后台的路由
+ * 规则类型 menu menu_dir button
+ * 菜单类型 tab iframe link
  */
 export const handleAdminRoute = (routes: any) => {
     const viewsComponent = import.meta.glob('/src/views/backend/**/*.vue')
+    // 添加路由规则到router - menu_dir menu(tab iframe)
     addRouteAll(viewsComponent, routes, adminBaseRoute.name as string)
     const menuAdminBaseRoute = '/' + (adminBaseRoute.name as string) + '/'  // /admin/
-    // 后台的menu数据处理成router的菜单数据
+    // 生成菜单的路由规则 - menu_dir menu(tab iframe link)
     const menuRule = handleMenuRule(routes, menuAdminBaseRoute, 'admin')
-    // 更新stores中的路由菜单数据
+    // 设置菜单
     const navTabs = useNavTabs()
     navTabs.setTabsViewRoutes(menuRule)
-    // 每个菜单的权限节点add edit delete等
+    // 处理权限节点 button
     navTabs.fillAuthNode(handleAuthNode(routes, menuAdminBaseRoute))
 }
 
@@ -200,6 +203,7 @@ const handleMenuRule = (routes: any, pathPrefix = '/', module = 'admin') => {
 const handleAuthNode = (routes: any, prefix = '/') => {
     const authNode: Map<string, string[]> = new Map([])
     assembleAuthNode(routes, authNode, prefix, prefix)
+    // console.info(JSON.stringify(Object.fromEntries(authNode)))
     return authNode
 }
 const assembleAuthNode = (routes: any, authNode: Map<string, string[]>, prefix = '/', parent = '/') => {
@@ -238,7 +242,7 @@ export const addRouteAll = (viewsComponent: Record<string, any>, routes: any, pa
 }
 
 /**
- * 动态添加路由
+ * 动态添加路由 菜单类型：tab iframe
  * @param viewsComponent
  * @param route
  * @param parentName
