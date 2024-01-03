@@ -29,6 +29,7 @@ async function start() {
     app.mount('#app')
 
     // modules start mark, Please do not remove.
+
     // mitt 是一个简单的事件管理器库，用于在应用程序中进行事件的发布和订阅。
     // 通过 app.config.globalProperties 可以将其挂载到全局
     // 发布事件 emit('event-name', eventData)

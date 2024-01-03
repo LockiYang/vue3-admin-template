@@ -1,0 +1,12 @@
+{
+    "siteName": "BuildAdmin",
+    "version": "v1.0.0",
+    "cdnUrl": "http://task.local",
+    "apiUrl": "https://buildadmin.com",
+    "upload": {
+        "maxsize": 10485760,
+        "savename": "/storage/{topic}/{year}{mon}{day}/{filesha1}{.suffix}",
+        "mimetype": "jpg,png,bmp,jpeg,gif,webp,zip,rar,xls,xlsx,doc,docx,wav,mp4,mp3,txt",
+        "mode": "local"
+    }
+}

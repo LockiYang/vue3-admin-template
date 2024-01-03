@@ -23,6 +23,8 @@ import { useEventListener } from '@vueuse/core'
 import { BEFORE_RESIZE_LAYOUT } from '/@/stores/constant/cacheKey'
 import { isEmpty } from 'lodash-es'
 
+import * as siteConfigData from '/@/api/jsons/siteConfig.json'
+
 const terminal = useTerminal()
 const navTabs = useNavTabs()
 const config = useConfig()
@@ -47,7 +49,10 @@ const init = () => {
      * 后台初始化请求，获取站点配置，动态路由等信息
      */
     index().then((res) => {
-        siteConfig.dataFill(res.data.siteConfig)
+        siteConfig.dataFill({
+            ...siteConfigData,
+            headNav: [],
+        })
         terminal.changePort(res.data.terminal.installServicePort)
         terminal.changePackageManager(res.data.terminal.npmPackageManager)
         adminInfo.dataFill(res.data.adminInfo)
@@ -55,7 +60,7 @@ const init = () => {
         if (res.data.menus) {
             handleAdminRoute(res.data.menus)
 
-            // 预跳转到上次路径，刷新时从loading页面跳转
+            // 预跳转到上次路径，用于刷新页面时从loading页面跳转
             if (route.params.to) {
                 const lastRoute = JSON.parse(route.params.to as string)
                 if (lastRoute.path != adminBaseRoute.path) {
