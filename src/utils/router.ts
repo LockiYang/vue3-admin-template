@@ -127,17 +127,20 @@ export const handleFrontendRoute = (routes: any) => {
 }
 
 /**
- * 处理后台的路由
+ * 处理后台的路由、菜单、权限
  * 规则类型 menu menu_dir button
  * 菜单类型 tab iframe link
  */
 export const handleAdminRoute = (routes: any) => {
     const viewsComponent = import.meta.glob('/src/views/backend/**/*.vue')
-    // 添加路由规则到router - menu_dir menu(tab iframe)
+    // 添加路由规则到router - menu(tab iframe)
+    // 1. 根据权限添加路由
+    // addRouteByRole(routes)
     addRouteAll(viewsComponent, routes, adminBaseRoute.name as string)
     const menuAdminBaseRoute = '/' + (adminBaseRoute.name as string) + '/'  // /admin/
-    // 生成菜单的路由规则 - menu_dir menu(tab iframe link)
+    // 生成菜单规则 - menu_dir menu(tab iframe link)
     const menuRule = handleMenuRule(routes, menuAdminBaseRoute, 'admin')
+
     // 设置菜单
     const navTabs = useNavTabs()
     navTabs.setTabsViewRoutes(menuRule)
@@ -286,6 +289,8 @@ export const addRouteItem = (viewsComponent: Record<string, any>, route: any, pa
             addtab: true,
         },
     }
+    console.info(parentName)
+    console.info(routeBaseInfo)
     if (parentName) {
         router.addRoute(parentName, routeBaseInfo)
     } else {

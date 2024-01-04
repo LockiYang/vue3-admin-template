@@ -49,7 +49,6 @@ const staticRoutes: Array<RouteRecordRaw> = [
         },
     },
     {
-        // 匹配动态路由的起点
         // 后台找不到页面了-可能是路由未加载上
         path: '/admin:path(.*)*',
         redirect: (to) => {
