@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import { useConfig } from '/@/stores/config'
 import { useNavTabs } from '/@/stores/navTabs'
-import { useTerminal } from '/@/stores/terminal'
 import { useSiteConfig } from '/@/stores/siteConfig'
 import { useAdminInfo } from '/@/stores/adminInfo'
 import { useRoute } from 'vue-router'
@@ -23,9 +22,8 @@ import { useEventListener } from '@vueuse/core'
 import { BEFORE_RESIZE_LAYOUT } from '/@/stores/constant/cacheKey'
 import { isEmpty } from 'lodash-es'
 
-import * as siteConfigData from '/@/api/jsons/siteConfig.json'
+import * as siteConfigJson from '/@/api/jsons/siteConfig.json'
 
-const terminal = useTerminal()
 const navTabs = useNavTabs()
 const config = useConfig()
 const route = useRoute()
@@ -50,11 +48,11 @@ const init = () => {
      */
     index().then((res) => {
         siteConfig.dataFill({
-            ...siteConfigData,
+            ...siteConfigJson,
             headNav: [],
         })
-        terminal.changePort(res.data.terminal.installServicePort)
-        terminal.changePackageManager(res.data.terminal.npmPackageManager)
+        // terminal.changePort(res.data.terminal.installServicePort)
+        // terminal.changePackageManager(res.data.terminal.npmPackageManager)
         adminInfo.dataFill(res.data.adminInfo)
 
         if (res.data.menus) {
@@ -77,6 +75,7 @@ const init = () => {
     })
 }
 
+// 根据浏览器宽度调整布局
 const onAdaptiveLayout = () => {
     let defaultBeforeResizeLayout = {
         layoutMode: config.layout.layoutMode,
